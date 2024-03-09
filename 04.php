@@ -4,14 +4,14 @@ include 'includes/header.php';
 // constructores
 class Empleado {
   public $nombre;
-  public $apellidos;
+  public $apellido;
   public $departamento;
   public $email;
   public $coidigo;
   
-  public function __construct($nombre, $apellido, $departamento, $email, $coidigo) {
+  public function __construct(string $nombre, string $apellido, string $departamento, string $email, int $coidigo) {
     $this->nombre = $nombre;
-    $this->apellidos = $apellidos;
+    $this->apellido = $apellido;
     $this->departamento = $departamento;
     $this->email = $email;
     $this->coidigo = $coidigo;
