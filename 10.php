@@ -53,7 +53,7 @@ class Proveedor
 
 $empleado = new Empleado('Juan', 'Perez', 'perez@p.com', 123123123, 123, 'TI');
 
-$proveedor = new Proveedor('Pedro', 'Gonzalez', 'gonzalez@p.com', 123123123, 'MKT');
+$proveedor = new Proveedor('Pablo', 'Gonzalez', 'gonzalez@p.com', 123123123, 'MKT');
 
 echo '<pre>';
 var_dump($empleado);
