@@ -3,51 +3,57 @@ include 'includes/header.php';
 
 // herencia
 
-class Empleado 
+Class Persona
 {
   protected $nombre;
-  protected $apellido;
+  protected $apellidos;
   protected $email;
   protected $telefono;
+  
+  public function __construct($nombre, $apelldo, $email, $telefono)
+  {
+    $this->nombre = $nombre;
+    $this->apellido = $apelldo;
+    $this->email = $email;
+    $this->telefono = $telefono;
+  } 
+  
+  public function getInformacion()
+  {
+    echo "Nombre: " . $this->nombre . " " . $this->apellido . " " . "Email: " . $this->email;
+  }
+  public function getTelefono()
+  {
+    return $this->telefono;
+  }
+}
+
+class Empleado extends Persona
+{
   protected $codigo;
   protected $departamento;
   
   public function __construct($nombre, $apellido, $email, $telefono, $codigo, $departamento)
   {
-    $this->nombre = $nombre;
-    $this->apellido = $apellido;
-    $this->email = $email;
-    $this->telefono = $telefono;
+    parent::__construct($nombre, $apellido, $email, $telefono);
     $this->codigo = $codigo;
     $this->departamento = $departamento;
   }
-  
-  public function mostrarInformacion()
-  {
-    echo "Nombre: " . $this->nombre . " " . $this->apellido . " " . "Email: " . $this->email;
-  }
 }
 
-class Proveedor
+class Proveedor extends Persona
 {
-  protected $nombre;
-  protected $apellido;
-  protected $email;
-  protected $telefono;
   protected $empresa;
   
-  public function __construct($nombre, $apelido, $email, $telefono, $empresa)
+  public function __construct($nombre, $apellido, $email, $telefono, $empresa)
   {
-    $this->nombre = $nombre;
-    $this->apelido = $apelido;
-    $this->email = $email;
-    $this->telefono = $telefono;
+    parent::__construct($nombre, $apellido, $email, $telefono);
     $this->empresa = $empresa;
   }
   
-  public function mostrarInformacion()
+  public function getInformacion()
   {
-    echo "Nombre: " . $this->nombre . " " . $this->apellido . " " . "Email: " . $this->email;
+    echo "Nombre: " . $this->nombre . " " . $this->apellido . " " . "Email: " . $this->email . ' de la empresa: ' . $this->empresa;
   }
 }
 
@@ -62,6 +68,8 @@ echo '<pre>';
 var_dump($proveedor);
 echo '</pre><br>';
 
-$empleado->mostrarInformacion();
+$empleado->getInformacion();
 echo '<br>';
-$proveedor->mostrarInformacion();
+$proveedor->getInformacion();
+echo '<br>';
+echo $proveedor->getTelefono();
